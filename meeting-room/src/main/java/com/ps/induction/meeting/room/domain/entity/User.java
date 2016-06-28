@@ -1,4 +1,4 @@
-package com.ps.induction.meeting.room.entity;
+package com.ps.induction.meeting.room.domain.entity;
 
 /**
  * @author u592
