@@ -35,7 +35,7 @@ public class MeetingAttendee implements Serializable {
 	private User attendee;
 
 	@Column
-	private Response response;
+	private AttedanceStatus response;
 
 	public Meeting getMeeting() {
 		return meeting;
@@ -53,11 +53,11 @@ public class MeetingAttendee implements Serializable {
 		this.attendee = attendee;
 	}
 
-	public Response getResponse() {
+	public AttedanceStatus getResponse() {
 		return response;
 	}
 
-	public void setResponse(Response response) {
+	public void setResponse(AttedanceStatus response) {
 		this.response = response;
 	}
 

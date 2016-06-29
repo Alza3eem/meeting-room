@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * @author u592
+ * @author Eyad Jarrar
  *
  */
 @Entity

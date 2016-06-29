@@ -36,6 +36,7 @@ public class Meeting {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private User userCreate;
 
+	
 	@OneToMany(mappedBy = "meeting", cascade = CascadeType.ALL)
 	private Set<MeetingAttendee> attendees;
 
@@ -53,7 +54,7 @@ public class Meeting {
 
 	@Column
 	@Enumerated
-	private Status status;
+	private MeetingStatus status;
 
 	public Integer getId() {
 		return id;
@@ -112,11 +113,11 @@ public class Meeting {
 		this.endTime = endTime;
 	}
 
-	public Status getStatus() {
+	public MeetingStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(Status status) {
+	public void setStatus(MeetingStatus status) {
 		this.status = status;
 	}
 

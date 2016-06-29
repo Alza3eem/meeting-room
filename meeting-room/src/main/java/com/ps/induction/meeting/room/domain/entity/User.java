@@ -12,6 +12,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * @author Eyad Jarrar
+ *
+ */
 @Entity
 @Table(name = "user")
 public class User {
@@ -35,6 +39,7 @@ public class User {
 	@Column(name = "title")
 	private String title;
 
+	//XXX No need for this as the attendees connected with Meeting not with user
 	@OneToMany(mappedBy = "attendee", cascade = CascadeType.ALL)
 	private Set<MeetingAttendee> attendees;
 
