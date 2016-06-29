@@ -16,4 +16,9 @@ public interface RoomRepository extends Repository<Room, Integer> {
 	void deleteById(Integer id);
 
 	void deleteByName(String name);
+	
+	Iterable<Room> findAll();
+
+	Room findOneByRoomName(String roomName);
+	
 }
