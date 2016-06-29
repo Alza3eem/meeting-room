@@ -7,22 +7,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<script type="text/javascript" src="datepair.js"></script>
-<script type="text/javascript" src="jquery.datepair.js"></script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script>
-	// initialize input widgets first
-	$('#datepairExample .time').timepicker({
-		'showDuration' : true,
-		'timeFormat' : 'g:ia'
+	$(function() {
+		$("#datepicker").datepicker();
 	});
-
-	$('#datepairExample .date').datepicker({
-		'format' : 'yyyy-m-d',
-		'autoclose' : true
+</script>
+<link rel="stylesheet"
+	href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.3/jquery.timepicker.min.css">
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.3/jquery.timepicker.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('input.timepicker').timepicker({});
 	});
-
-	// initialize datepair
-	$('#datepairExample').datepair();
 </script>
 <title>Book meeting</title>
 </head>
@@ -49,23 +50,20 @@
 			</tr>
 			<tr>
 				<td>Notes</td>
-				<td>
-				<textarea name="notes" rows="4" cols="50"></textarea> </td>
+				<td><textarea name="notes" rows="4" cols="50"></textarea></td>
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><input type="text" id="datepairExample" name="meetingDate"
-					class="date start" /></td>
+				<td><input type="text" id="datepicker" name="meetingDate" /></td>
 			</tr>
 			<tr>
 				<td>Start time</td>
-				<td><input id="datepairExample" name="meetingStartTime"
-					type="text" class="time start" /></td>
+				<td><input class="timepicker" name="meetingStartTime"
+					type="text" /></td>
 			</tr>
 			<tr>
 				<td>End time</td>
-				<td><input type="text" id="datepairExample"
-					name="meetingEndTime" class="time end" /></td>
+				<td><input type="text" class="timepicker" name="meetingEndTime" /></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" /><input type="reset" /></td>

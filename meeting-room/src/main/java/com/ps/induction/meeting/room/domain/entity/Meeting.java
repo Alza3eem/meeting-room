@@ -30,13 +30,12 @@ public class Meeting {
 	private Integer id;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	private Room room;
+	private Room meetingRoom;
 
 	@JoinColumn(name = "user_create")
 	@ManyToOne(cascade = CascadeType.ALL)
 	private User userCreate;
 
-	
 	@OneToMany(mappedBy = "meeting", cascade = CascadeType.ALL)
 	private Set<MeetingAttendee> attendees;
 
@@ -46,11 +45,11 @@ public class Meeting {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "start_date")
-	private Date startTime;
+	private Date meetingStartTime;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "end_time")
-	private Date endTime;
+	private Date meetingEndTime;
 
 	@Column
 	@Enumerated
@@ -64,12 +63,12 @@ public class Meeting {
 		this.id = id;
 	}
 
-	public Room getRoom() {
-		return room;
+	public Room getMeetingRoom() {
+		return meetingRoom;
 	}
 
-	public void setRoom(Room room) {
-		this.room = room;
+	public void setMeetingRoom(Room meetingRoom) {
+		this.meetingRoom = meetingRoom;
 	}
 
 	public User getUserCreate() {
@@ -80,7 +79,6 @@ public class Meeting {
 		this.userCreate = userCreate;
 	}
 
-	// @ElementCollection(targetClass = MeetingAttendee.class)
 	public Set<MeetingAttendee> getAttendees() {
 		return attendees;
 	}
@@ -97,20 +95,20 @@ public class Meeting {
 		this.meetingDate = meetingDate;
 	}
 
-	public Date getStartTime() {
-		return startTime;
+	public Date getMeetingStartTime() {
+		return meetingStartTime;
 	}
 
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
+	public void setMeetingStartTime(Date meetingStartTime) {
+		this.meetingStartTime = meetingStartTime;
 	}
 
-	public Date getEndTime() {
-		return endTime;
+	public Date getMeetingEndTime() {
+		return meetingEndTime;
 	}
 
-	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
+	public void setMeetingEndTime(Date meetingEndTime) {
+		this.meetingEndTime = meetingEndTime;
 	}
 
 	public MeetingStatus getStatus() {
@@ -123,9 +121,9 @@ public class Meeting {
 
 	@Override
 	public String toString() {
-		return "Meeting [id=" + id + ", room=" + room + ", userCreate=" + userCreate + ", attendees=" + attendees
-				+ ", meetingDate=" + meetingDate + ", startTime=" + startTime + ", endTime=" + endTime + ", status="
-				+ status + "]";
+		return "Meeting [id=" + id + ", room=" + meetingRoom + ", userCreate=" + userCreate + ", attendees=" + attendees
+				+ ", meetingDate=" + meetingDate + ", startTime=" + meetingStartTime + ", endTime=" + meetingEndTime
+				+ ", status=" + status + "]";
 	}
 
 	@Override

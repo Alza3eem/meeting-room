@@ -1,0 +1,22 @@
+Stories:
+0. Create git and project 			 -------------->	Done
+1. Create Entities & repositories	 -------------->	Done
+
+2. Add User				--------------------------->	
+3. List users (pagination) ------------------------>	
+4. Update User			   ------------------------>	
+5. Delete User			   ------------------------>	
+6. Add role, function			------------------->	
+7. Interceptors & Filters		------------------->	
+
+8. Add room				 -------------------------->	
+9. List rooms (pagination) ------------------------>	
+10. Update Room				----------------------->	
+11. Delete Room				----------------------->	
+
+12. Book meeting(add) 	 --------------------------->	
+13. My meetings page list(pagination) -------------->	
+14. Meeting details 		------------------------>	
+15. Accept, wait or reject meeting ----------------->	
+
+16. Login					------------------------>	

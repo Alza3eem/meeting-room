@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ps.induction.meeting.room.domain.entity.Meeting;
+import com.ps.induction.meeting.room.domain.entity.Room;
 import com.ps.induction.meeting.room.facade.MeetingFacade;
+import com.ps.induction.meeting.room.facade.RoomFacade;
 
 /**
  * @author Mohammad Hussein
@@ -24,10 +26,14 @@ public class CreateMeetingControler {
 
 	@Autowired
 	private MeetingFacade meetingFacade;
-
+	
+	@Autowired
+	private RoomFacade roomFacade;
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public String view() {
-		return "CreateMeeting";
+	public String view(Map<String, Object> model) {
+		Iterable<Room> rooms = roomFacade.getAllRooms();
+		return "meetings/CreateMeeting";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

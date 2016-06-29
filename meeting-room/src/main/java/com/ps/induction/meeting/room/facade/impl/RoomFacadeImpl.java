@@ -3,6 +3,8 @@
  */
 package com.ps.induction.meeting.room.facade.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.ps.induction.meeting.room.domain.entity.Room;
 import com.ps.induction.meeting.room.domain.repository.RoomRepository;
 import com.ps.induction.meeting.room.facade.RoomFacade;
@@ -13,12 +15,13 @@ import com.ps.induction.meeting.room.facade.RoomFacade;
  */
 public class RoomFacadeImpl implements RoomFacade{
 	
+	@Autowired
 	RoomRepository roomRepository;
 
 	@Override
 	public Room getRoom(String roomName) {
 
-		return roomRepository.findOneByRoomName(roomName);
+		return roomRepository.findOneByName(roomName);
 	}
 
 	@Override
@@ -43,7 +46,7 @@ public class RoomFacadeImpl implements RoomFacade{
 	@Override
 	public boolean roomNameExists(String roomName) {
 		
-		Room room = roomRepository.findOneByRoomName(roomName);
+		Room room = roomRepository.findOneByName(roomName);
 		if(room!=null)
 		return true;
 		else

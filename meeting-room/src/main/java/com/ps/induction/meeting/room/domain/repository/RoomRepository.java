@@ -19,6 +19,6 @@ public interface RoomRepository extends Repository<Room, Integer> {
 	
 	Iterable<Room> findAll();
 
-	Room findOneByRoomName(String roomName);
+	Room findOneByName(String roomName);
 	
 }
