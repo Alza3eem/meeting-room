@@ -9,6 +9,6 @@ public interface FunctionRepository extends org.springframework.data.repository.
 
 	public Function save(Function entity);
 
-	public Function findOne(String id);
+	public Function findOneById(String id);
 	
 }

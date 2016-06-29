@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -31,8 +32,8 @@ public class Meeting {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Room room;
 
+	@JoinColumn(name = "user_create")
 	@ManyToOne(cascade = CascadeType.ALL)
-	@Column(name = "user_create")
 	private User userCreate;
 
 	@OneToMany(mappedBy = "meeting", cascade = CascadeType.ALL)
@@ -78,6 +79,7 @@ public class Meeting {
 		this.userCreate = userCreate;
 	}
 
+	// @ElementCollection(targetClass = MeetingAttendee.class)
 	public Set<MeetingAttendee> getAttendees() {
 		return attendees;
 	}
@@ -123,6 +125,31 @@ public class Meeting {
 		return "Meeting [id=" + id + ", room=" + room + ", userCreate=" + userCreate + ", attendees=" + attendees
 				+ ", meetingDate=" + meetingDate + ", startTime=" + startTime + ", endTime=" + endTime + ", status="
 				+ status + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Meeting other = (Meeting) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 }

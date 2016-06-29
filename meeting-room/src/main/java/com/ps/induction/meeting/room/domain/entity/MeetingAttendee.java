@@ -1,17 +1,28 @@
 package com.ps.induction.meeting.room.domain.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * @author Mohammad Hussein
  *
  */
 @Entity
-public class MeetingAttendee {
+@Table(name = "attendance")
+@IdClass(MeetingAttendeeKey.class)
+public class MeetingAttendee implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@ManyToOne
@@ -40,14 +51,6 @@ public class MeetingAttendee {
 
 	public void setAttendee(User attendee) {
 		this.attendee = attendee;
-	}
-
-	public User getUser() {
-		return attendee;
-	}
-
-	public void setUser(User user) {
-		this.attendee = user;
 	}
 
 	public Response getResponse() {
