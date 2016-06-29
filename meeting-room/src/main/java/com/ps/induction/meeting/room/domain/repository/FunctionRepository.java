@@ -2,7 +2,7 @@ package com.ps.induction.meeting.room.domain.repository;
 
 import org.springframework.stereotype.Repository;
 
-import com.progressoft.meeetingsmanagement.entities.Function;
+import com.ps.induction.meeting.room.domain.entity.Function;
 
 @Repository
 public interface FunctionRepository extends org.springframework.data.repository.Repository<Function, Long> {

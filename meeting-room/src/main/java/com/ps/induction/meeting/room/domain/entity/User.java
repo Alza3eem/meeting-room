@@ -1,40 +1,43 @@
 package com.ps.induction.meeting.room.domain.entity;
 
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
+
 	@ManyToOne
 	private Role role;
-	
+
 	@Column(name = "user_pass")
 	private String password;
-	
+
 	@Column(name = "frst_name")
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
-	
+
 	@Column(name = "title")
 	private String title;
-	
-	
+
+	@OneToMany(mappedBy = "attendee", cascade = CascadeType.ALL)
+	private Set<MeetingAttendee> attendees;
+
 	/**
 	 * @return the id
 	 */
@@ -51,18 +54,17 @@ public class User {
 	}
 
 	/**
-	 * @return the roleId
+	 * @return
 	 */
-	public Role getRoleId() {
-		return roleId;
+	public Role getRole() {
+		return role;
 	}
 
 	/**
-	 * @param roleId
-	 *            the roleId to set
+	 * @param role
 	 */
-	public void setRoleId(Role roleId) {
-		this.roleId = roleId;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	/**
@@ -124,6 +126,5 @@ public class User {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 
 }

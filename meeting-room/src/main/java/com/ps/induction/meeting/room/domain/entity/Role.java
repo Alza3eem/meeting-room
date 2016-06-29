@@ -1,4 +1,4 @@
-
+package com.ps.induction.meeting.room.domain.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
