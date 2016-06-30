@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Pattern;
 
 /**
  * @author Mohammad Hussein
@@ -41,6 +42,7 @@ public class Meeting {
 
 	@Column(name = "meet_date")
 	@Temporal(TemporalType.DATE)
+	@Pattern(regexp = "\\d{2}/\\d{2}/\\d{4}")
 	private Date meetingDate;
 
 	@Temporal(TemporalType.TIMESTAMP)

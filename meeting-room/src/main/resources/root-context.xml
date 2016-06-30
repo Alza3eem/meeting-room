@@ -9,4 +9,6 @@
 
 	<context:annotation-config />
 	<bean class="com.ps.induction.meeting.room.facade.impl.MeetingFacadeImpl"></bean>
+	<bean class="com.ps.induction.meeting.room.facade.impl.RoomFacadeImpl"></bean>
+	<bean class="com.ps.induction.meeting.room.facade.impl.UserFacadeImpl"></bean>
 </beans>

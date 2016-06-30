@@ -9,7 +9,7 @@ import com.ps.induction.meeting.room.domain.entity.Meeting;
  *
  */
 @org.springframework.stereotype.Repository
-public interface BookingRepository extends Repository<Meeting, Integer> {
+public interface MeetingRepository extends Repository<Meeting, Integer> {
 
 	void save(Meeting booking);
 

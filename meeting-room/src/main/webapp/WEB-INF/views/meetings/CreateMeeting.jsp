@@ -54,7 +54,7 @@
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><input type="text" id="datepicker" name="meetingDate" /></td>
+				<td><input type="text" id="datepicker" name="meetingDate" readonly="readonly"/></td>
 			</tr>
 			<tr>
 				<td>Start time</td>
