@@ -3,7 +3,7 @@ package com.ps.induction.meeting.room.facade;
 import com.ps.induction.meeting.room.domain.entity.User;
 
 /**
- * @author u592
+ * @author Eyad Jarrar
  *
  */
 public interface UserFacade {

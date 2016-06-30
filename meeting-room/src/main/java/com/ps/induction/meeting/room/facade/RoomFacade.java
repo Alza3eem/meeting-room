@@ -6,7 +6,7 @@ package com.ps.induction.meeting.room.facade;
 import com.ps.induction.meeting.room.domain.entity.Room;
 
 /**
- * @author u592
+ * @author Eyad Jarrar
  *
  */
 public interface RoomFacade {
@@ -17,6 +17,8 @@ public interface RoomFacade {
 	public Iterable<Room> getAllRooms();
 	
 	public void deleteRoomById(int id);
+	
+	public void deleteRoomByName(String name);
 	
 	public void addRoom(Room room);
 

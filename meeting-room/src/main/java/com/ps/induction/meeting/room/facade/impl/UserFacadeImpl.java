@@ -3,6 +3,8 @@
  */
 package com.ps.induction.meeting.room.facade.impl;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ps.induction.meeting.room.domain.entity.User;
@@ -10,9 +12,10 @@ import com.ps.induction.meeting.room.domain.repository.UserRepository;
 import com.ps.induction.meeting.room.facade.UserFacade;
 
 /**
- * @author u592
+ * @author Eyad Jarrar
  *
  */
+@Transactional
 public class UserFacadeImpl implements UserFacade{
 
 	@Autowired

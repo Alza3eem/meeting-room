@@ -3,6 +3,8 @@
  */
 package com.ps.induction.meeting.room.facade.impl;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ps.induction.meeting.room.domain.entity.Room;
@@ -10,9 +12,10 @@ import com.ps.induction.meeting.room.domain.repository.RoomRepository;
 import com.ps.induction.meeting.room.facade.RoomFacade;
 
 /**
- * @author u592
+ * @author Eyad Jarrar
  *
  */
+@Transactional
 public class RoomFacadeImpl implements RoomFacade{
 	
 	@Autowired
@@ -57,6 +60,13 @@ public class RoomFacadeImpl implements RoomFacade{
 	public void updateRoom(Room room) {
 
 		roomRepository.save(room);
+	}
+
+	@Override
+	public void deleteRoomByName(String name) {
+		
+		roomRepository.deleteByName(name);
+		
 	}
 
 
