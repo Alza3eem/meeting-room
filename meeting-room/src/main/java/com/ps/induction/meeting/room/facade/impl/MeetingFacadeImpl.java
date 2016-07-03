@@ -1,5 +1,7 @@
 package com.ps.induction.meeting.room.facade.impl;
 
+import java.util.Date;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.ps.induction.meeting.room.domain.entity.Meeting;
 import com.ps.induction.meeting.room.domain.repository.MeetingRepository;
 import com.ps.induction.meeting.room.facade.MeetingFacade;
+import com.ps.induction.meeting.room.facade.exceptions.TimeCrossException;
 
 /**
  * @author Mohammad Hussein
@@ -20,12 +23,25 @@ public class MeetingFacadeImpl implements MeetingFacade {
 
 	@Override
 	public void createMeeting(Meeting meeting) {
+		Date meetingStartTime = meeting.getMeetingStartTime();
+		Date meetingEndTime = meeting.getMeetingEndTime();
 
+		Iterable<Meeting> meetings = meetingRepository
+				.findByMeetingRoomAndMeetingDateAndMeetingStartTimeBetweenOrMeetingEndTimeBetween(
+						meeting.getMeetingRoom(), meeting.getMeetingDate(), meetingStartTime, meetingEndTime,
+						meetingEndTime, meetingStartTime);
+		if (meetings != null)
+			throw new TimeCrossException("Meeting interception, Choose another time.");
+	}
+
+	@Override
+	public Iterable<Meeting> myMeetingList(String username) {
+		
+		return null;
 	}
 
 	@Override
 	public Meeting getMeetingById(int id) {
-		
 		return meetingRepository.findOneById(id);
 	}
 

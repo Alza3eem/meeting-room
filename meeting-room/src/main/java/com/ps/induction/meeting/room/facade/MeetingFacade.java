@@ -9,6 +9,8 @@ import com.ps.induction.meeting.room.domain.entity.Meeting;
 public interface MeetingFacade {
 
 	void createMeeting(Meeting meeting);
-	
+
+	Iterable<Meeting> myMeetingList(String username);
+
 	Meeting getMeetingById(int id);
 }

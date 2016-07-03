@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ps.induction.meeting.room.web.controlers;
+package com.ps.induction.meeting.room.web.controllers.meeting;
 
 import java.util.Map;
 

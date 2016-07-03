@@ -1,14 +1,16 @@
 /**
  * 
  */
-package com.ps.induction.meeting.room.web.controlers;
+package com.ps.induction.meeting.room.web.controllers.room;
+
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ps.induction.meeting.room.domain.entity.Room;
 import com.ps.induction.meeting.room.facade.RoomFacade;
 
 /**
@@ -17,17 +19,18 @@ import com.ps.induction.meeting.room.facade.RoomFacade;
  */
 
 @Controller
-@RequestMapping("/delete-room")
-public class DeleteRoomController{
+@RequestMapping("/rooms-list")
+public class RoomsListController {
 
 	@Autowired
 	private RoomFacade roomFacade;
-
+	
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public String view(@RequestParam String roomName) {
+	public String view(Map<String, Object> model) {
 
-		roomFacade.deleteRoomByName(roomName);
-		
-		return "redirect:/rooms-list";
+		Iterable<Room> rooms = roomFacade.getAllRooms();
+		model.put("rooms", rooms);
+		return "rooms/roomsList";
 	}
 }

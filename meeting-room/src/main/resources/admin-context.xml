@@ -7,7 +7,7 @@
 	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<context:annotation-config></context:annotation-config>
-	<context:component-scan base-package="com.ps.induction.meeting.room.web.controlers"></context:component-scan>
+	<context:component-scan base-package="com.ps.induction.meeting.room.web.controllers"></context:component-scan>
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/WEB-INF/views/" suffix=".jsp" />
