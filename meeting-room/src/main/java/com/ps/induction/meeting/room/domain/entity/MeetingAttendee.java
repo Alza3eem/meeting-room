@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
@@ -35,6 +36,7 @@ public class MeetingAttendee implements Serializable {
 	private User attendee;
 
 	@Column
+	@Enumerated
 	private AttedanceStatus response;
 
 	public Meeting getMeeting() {
