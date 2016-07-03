@@ -35,10 +35,8 @@ public class AddRoomController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String addRoom(@ModelAttribute("signupForm") Room room, Map<String, Object> model) {
-		
-		try
 
-		{
+		try {
 			roomFacade.addRoom(room);
 			return "redirect:/rooms-list";
 		} catch (FacadeException e) {
