@@ -34,7 +34,7 @@ public class AddRoomController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String signUp(@ModelAttribute("signupForm") Room room, Map<String, Object> model) {
+	public String addRoom(@ModelAttribute("signupForm") Room room, Map<String, Object> model) {
 		
 		try
 

@@ -25,8 +25,6 @@ public class RoomsListController {
 	@Autowired
 	private RoomFacade roomFacade;
 	
-	// Add this in deleteControler
-	//@RequestParam String roomName
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String view(Map<String, Object> model) {

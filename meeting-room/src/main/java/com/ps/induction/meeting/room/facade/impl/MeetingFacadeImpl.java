@@ -23,4 +23,10 @@ public class MeetingFacadeImpl implements MeetingFacade {
 
 	}
 
+	@Override
+	public Meeting getMeetingById(int id) {
+		
+		return meetingRepository.findOneById(id);
+	}
+
 }

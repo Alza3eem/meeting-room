@@ -12,5 +12,7 @@ import com.ps.induction.meeting.room.domain.entity.Meeting;
 public interface MeetingRepository extends Repository<Meeting, Integer> {
 
 	void save(Meeting booking);
+	
+	Meeting findOneById(int id);
 
 }
