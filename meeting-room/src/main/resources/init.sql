@@ -1,0 +1,70 @@
+INSERT INTO `meeting_room`.`roles` (`role_id`, `role_name`, `id`) VALUES ('1', 'SuperAdmin', '0');
+
+INSERT INTO `meeting_room`.`user` (`id`, `frst_name`, `last_name`, `user_pass`, `title`, `username`, `role_role_id`) VALUES ('2', 'Admin', 'AdminF', 'adminadminA', 'Admin', 'adminadminA', '1');
+
+
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('1', 'AddFunction', 'AddFunction');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('2', 'AddRole', 'AddRole');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('3', 'AddUser', 'AddUser');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('4', 'DeleteFunction', 'DeleteFunction');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('5', 'DeleteRole', 'DeleteRole');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('6', 'ListFunctions', 'ListFunctions');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('7', 'ListRoles', 'ListRoles');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('8', 'ListUsers', 'ListUsers');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('9', 'login', 'login');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('10', 'UpdateFunction', 'UpdateFunction'); 
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('11', 'UpdateRole', 'UpdateRole');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('12', 'UpdateUser', 'UpdateUser');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('13', 'listusers', '/listusers');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('14', 'updateuser', '/updateuser');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('15', 'updaterole', '/updaterole');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('16', 'updatefunc', '/updatefunc');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('17', 'listrole', '/listrole');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('18', 'listfuncs', '/listfuncs');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('19', 'deleteuser', '/deleteuser');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('20', 'deleterole', '/deleterole');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('21', 'deletefunc', '/deletefunc');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('22', 'adduser', '/adduser');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('23', 'addrole', '/addrole');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('24', 'addfunction', '/addfunction');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('25', 'update-room', '/update-room');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('26', 'rooms-list', '/rooms-list');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('27', 'delete-room', '/delete-room');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('28', 'add-room', '/add-room');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('29', 'my-meetings', '/my-meetings');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('30', 'meeting-info', '/meeting-info');
+INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('31', 'book-meeting', '/book-meeting');
+
+
+
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '1');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '2');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '3');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '4');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '5');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '6');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '7');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '8');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '9');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '10');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '11');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '12');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '13');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '14');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '15');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '16');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '17');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '18');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '19');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '20');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '21');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '22');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '23');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '24');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '25');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '26');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '27');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '28');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '29');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '30');
+INSERT INTO `meeting_room`.`roles_funcs` (`role_id`, `function_id`) VALUES ('1', '31');
