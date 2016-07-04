@@ -43,8 +43,8 @@ public class CreateMeetingController {
 		Iterable<User> users = userFacade.getAllUsers();
 		// TODO Don't show the the reserved times
 
-		model.put("rooms", rooms);
-		model.put("users", users);
+		model.put(Constants.ROOM_LIST, rooms);
+		model.put(Constants.USER_LIST, users);
 		return "meetings/CreateMeeting";
 	}
 

@@ -33,6 +33,8 @@ public class MeetingFacadeImpl implements MeetingFacade {
 						meetingEndTime, meetingStartTime);
 		if (meetings != null)
 			throw new TimeCrossException("Meeting interception, Choose another time.");
+
+		meetingRepository.save(meeting);
 	}
 
 	@Override

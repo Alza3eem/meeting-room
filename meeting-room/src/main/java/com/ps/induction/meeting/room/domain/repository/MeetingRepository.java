@@ -14,7 +14,9 @@ import com.ps.induction.meeting.room.domain.entity.Room;
 @org.springframework.stereotype.Repository
 public interface MeetingRepository extends Repository<Meeting, Integer> {
 
-	void save(Meeting booking);
+	void save(Meeting meeting);
+
+	void deleteById(Integer id);
 
 	Meeting findOneById(int id);
 

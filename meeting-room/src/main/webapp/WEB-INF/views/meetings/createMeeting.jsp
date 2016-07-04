@@ -38,7 +38,7 @@
 				<td><select id="meetingRoom" name="meetingRoom"
 					title="Select meetong room">
 						<c:if test="${fn:length(meetingRoom) ne 0 }">
-							<c:forEach var="meetingRoom" items="${meetingRoom }">
+							<c:forEach var="meetingRoom" items="${rooms }">
 								<option value="${meetingRoom.name}">${meetingRoom.name}</option>
 							</c:forEach>
 						</c:if>
@@ -46,7 +46,15 @@
 			</tr>
 			<tr>
 				<td>Attendees</td>
-				<td><input type="text" name="attendees" /></td>
+				<td><select id="attendees" name="attendees"
+					title="Select attendees" multiple="multiple">
+						<c:if test="${fn:length(users) ne 0 }">
+							<c:forEach var="user" items="${users }">
+								<option value="${user.firstName}">${user.firstName}
+									${user.lastName}</option>
+							</c:forEach>
+						</c:if>
+				</select></td>
 			</tr>
 			<tr>
 				<td>Notes</td>
@@ -54,7 +62,8 @@
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><input type="text" id="datepicker" name="meetingDate" readonly="readonly"/></td>
+				<td><input type="text" id="datepicker" name="meetingDate"
+					readonly="readonly" /></td>
 			</tr>
 			<tr>
 				<td>Start time</td>

@@ -9,4 +9,8 @@ public class Constants {
 	public static final String MEETING_LIST = "meeting";
 
 	public static final String ERROR_MESSAGE = "errMess";
+
+	public static final String ROOM_LIST = "rooms";
+
+	public static final String USER_LIST = "users";
 }

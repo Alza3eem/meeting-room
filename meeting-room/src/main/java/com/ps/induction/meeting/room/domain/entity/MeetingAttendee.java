@@ -37,7 +37,7 @@ public class MeetingAttendee implements Serializable {
 
 	@Column
 	@Enumerated
-	private AttedanceStatus response;
+	private AttedanceStatus response = AttedanceStatus.WAITING;
 
 	public Meeting getMeeting() {
 		return meeting;
