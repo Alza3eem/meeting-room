@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * @author Eyad Jarrar
+ * @author Loai AlTamimi
  *
  */
 @Entity
@@ -22,13 +22,13 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 
-	@Column
-	private String username;
-	
 	@ManyToOne
 	private Role role;
+	
+	@Column(name = "username")
+	private String username;
 
 	@Column(name = "user_pass")
 	private String password;
@@ -42,15 +42,14 @@ public class User {
 	@Column(name = "title")
 	private String title;
 
-	// XXX No need for this as the attendees connected with Meeting not with
-	// user
+	//XXX No need for this as the attendees connected with Meeting not with user
 	@OneToMany(mappedBy = "attendee", cascade = CascadeType.ALL)
 	private Set<MeetingAttendee> attendees;
 
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -58,16 +57,8 @@ public class User {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
 	}
 
 	/**
@@ -82,6 +73,14 @@ public class User {
 	 */
 	public void setRole(Role role) {
 		this.role = role;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	/**

@@ -9,5 +9,13 @@ import com.ps.induction.meeting.room.domain.entity.User;
 public interface UserFacade {
 	
 	Iterable<User> getAllUsers();
+	
+	User getUserById(Long id);
+	
+	void addUser(User user);
+	
+	void removeUserById(Long id);
+	
+	User getUserByUsernameAndPassword(String username, String password);
 
 }
