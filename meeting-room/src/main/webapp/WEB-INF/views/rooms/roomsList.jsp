@@ -45,7 +45,7 @@
 					<td>${room.location}</td>
 					<td>${room.capacity}</td>
 					<td>${room.equipment}</td>
-					<td><button onclick="location.href='${updateRoomUrl}}';" id=update">Update</button></td>
+					<td><button onclick="location.href='${updateRoomUrl}';" id=update>Update</button></td>
 					<td><button onclick="location.href='${deleteUrl}';"
 							id="delete">Delete</button></td>
 				</tr>

@@ -45,7 +45,7 @@ public class CreateMeetingController {
 
 		model.put(Constants.ROOM_LIST, rooms);
 		model.put(Constants.USER_LIST, users);
-		return "meetings/CreateMeeting";
+		return "meetings/createMeeting";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

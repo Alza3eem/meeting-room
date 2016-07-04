@@ -8,10 +8,6 @@
 </head>
 <body>
 Add a Room:${message }
-	<%
-		session.removeAttribute("message");
-	%>
-	
 		<br />
 		
 		<br />
