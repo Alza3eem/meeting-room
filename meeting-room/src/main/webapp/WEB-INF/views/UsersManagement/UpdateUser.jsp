@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add user</title>
+<title>Update user</title>
 </head>
 <body>
 	<form method="post" action="${pageContext.request.contextPath}/updateuser">

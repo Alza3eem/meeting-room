@@ -15,12 +15,12 @@
 		<col width="70%">
 		<tr>
 			<td><a
-				href="${pageContext.request.contextPath}/UsersManagement/listusers">Users
+				href="${pageContext.request.contextPath}/listusers">Users
 					List</a></td>
 			<td rowspan="5">
 				<table style="width: 100%">
 					<form method="post"
-						action="${pageContext.request.contextPath}/addrole">
+						action="${pageContext.request.contextPath}/updaterole">
 						<tr>
 							<td>Role Name<sup>*</sup> <input type="text" name="roleName"
 								value="${updateRole.roleName}" required="required"
@@ -28,8 +28,8 @@
 							<input type="hidden" name="id" value="${updateRole.roleId}">
 						</tr>
 					<td><select name="listt" multiple>
-							<c:forEach var="function" items="${updateRole.function}">
-								<option value="${function.functionId}">${function.functionName}</option>
+							<c:forEach var="function" items="${allFunc}">
+								<option value="${function.functionId}" ${fn:contains(updateRole.function, function) ? 'selected' : '' }>${function.functionName}</option>
 								<%-- 									<input type="hidden" name="id" value="${function.functionId}">
  --%>
 							</c:forEach>
@@ -43,24 +43,52 @@
 
 		<tr>
 			<td><a
-				href="${pageContext.request.contextPath}/admin/userloginfailedattempts">login
-					failed</a></td>
+				href="${pageContext.request.contextPath}/listrole">List Role</a></td>
 		</tr>
 
 		<tr>
 			<td><a
-				href="${pageContext.request.contextPath}/admin/changePassword">change
-					password</a></td>
+				href="${pageContext.request.contextPath}/listfuncs">List Functions</a></td>
 		</tr>
 
 		<tr>
 			<td><a
-				href="${pageContext.request.contextPath}/admin/userssearch">Search
-					user</a></td>
+				href="${pageContext.request.contextPath}/adduser">Add User</a></td>
 		</tr>
-
+		
 		<tr>
-			<td><a href="${pageContext.request.contextPath}/admin/logout">logout</a></td>
+			<td><a
+				href="${pageContext.request.contextPath}/addrole">Add Role</a></td>
+		</tr>
+		
+		<tr>
+			<td><a
+				href="${pageContext.request.contextPath}/addfunction">Add Function</a></td>
+		</tr>
+		
+		<tr>
+			<td><a
+				href="${pageContext.request.contextPath}/rooms-list">List Rooms</a></td>
+		</tr>		
+		
+		<tr>
+			<td><a
+				href="${pageContext.request.contextPath}/add-room">Add Room</a></td>
+		</tr>	
+		
+		<tr>
+			<td><a
+				href="${pageContext.request.contextPath}/my-meetings">My Meetings</a></td>
+		</tr>	
+		
+		
+		<tr>
+			<td><a
+				href="${pageContext.request.contextPath}/book-meeting">Book meeting</a></td>
+		</tr>	
+		
+		<tr>
+			<td><a href="${pageContext.request.contextPath}/logout">logout</a></td>
 		</tr>
 	</table>
 </body>

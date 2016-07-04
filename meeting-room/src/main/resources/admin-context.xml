@@ -19,6 +19,7 @@
 			<mvc:mapping path="/**" />
 			<mvc:exclude-mapping path="/login" />
 			<mvc:exclude-mapping path="/adduser" />
+			<mvc:exclude-mapping path="/logout" />
 			<bean class="com.ps.induction.meeting.room.interceptor.SessionInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

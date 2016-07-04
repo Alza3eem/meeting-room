@@ -32,6 +32,7 @@ public class SessionInterceptor implements HandlerInterceptor {
 			User user = (User) httpSession.getAttribute("loggedUser");
 			if(user != null){
 				String requestedPage = request.getServletPath();
+//				request.getPathInfo();
 				Role role = user.getRole();
 				List<Function> functionLst = role.getFunction();	
 				

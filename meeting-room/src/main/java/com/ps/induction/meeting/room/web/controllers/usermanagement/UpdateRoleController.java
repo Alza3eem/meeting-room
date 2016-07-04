@@ -3,6 +3,8 @@
  */
 package com.ps.induction.meeting.room.web.controllers.usermanagement;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -42,7 +44,7 @@ public class UpdateRoleController {
 	public ModelAndView getdata(@RequestParam String id) {
 
 		Role updateRole = roleFacade.getRoleById(Long.parseLong(id));
-		Function updateRoleFunc = functionFacade.getFunctionById(Long.parseLong(id));
+		List<Function> updateRoleFunc = updateRole.getFunction();
 		List<Function> allFunction = IterableUtils.toList(functionFacade.getAllFunctions());
 
 		ModelAndView model = new ModelAndView("/UsersManagement/UpdateRole");
@@ -62,6 +64,14 @@ public class UpdateRoleController {
 		Role role = new Role();
 		role.setRoleId(Long.parseLong(id));
 		role.setRoleName(form.getRoleName());
+		String[] functionsIds = form.getListt().split(",");
+		List<Long> funcsIds = new ArrayList<>();
+		for (int i = 0; i < functionsIds.length; i++) {
+			funcsIds.add(Long.parseLong(functionsIds[i]));
+		}
+		
+		List<Function> selectedFuncs = IterableUtils.toList(functionFacade.getAllFunctionsByIds(funcsIds));
+		role.setFunction(selectedFuncs);
 		roleFacade.addRole(role);
 
 		List<Role> list = IterableUtils.toList(roleFacade.getAllRoles());

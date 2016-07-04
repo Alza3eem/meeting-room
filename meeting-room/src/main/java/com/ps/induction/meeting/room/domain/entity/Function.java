@@ -25,12 +25,9 @@ public class Function {
 
 	@Column(name = "function_name")
 	private String functionName;
-	
+
 	@Column(name = "page_name")
 	private String pageName;
-	
-//	@ManyToMany(mappedBy="function")
-//	private List<Role> funcInRoles;
 
 	public Long getFunctionId() {
 		return functionId;
@@ -56,11 +53,17 @@ public class Function {
 		this.pageName = pageName;
 	}
 
-/*	public List<Role> getFuncInRoles() {
-		return funcInRoles;
+	@Override
+	public boolean equals(Object obj) {
+
+		Function funTemp = (Function) obj;
+
+		if (funTemp.getFunctionId() == this.functionId) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
-	public void setFuncInRoles(List<Role> funcInRoles) {
-		this.funcInRoles = funcInRoles;
-	}*/
 }

@@ -40,24 +40,52 @@
 
 		<tr>
 			<td><a
-				href="${pageContext.request.contextPath}/admin/userloginfailedattempts">login
-					failed</a></td>
+				href="${pageContext.request.contextPath}/listrole">List Role</a></td>
 		</tr>
 
 		<tr>
 			<td><a
-				href="${pageContext.request.contextPath}/admin/changePassword">change
-					password</a></td>
+				href="${pageContext.request.contextPath}/listfuncs">List Functions</a></td>
 		</tr>
 
 		<tr>
 			<td><a
-				href="${pageContext.request.contextPath}/admin/userssearch">Search
-					user</a></td>
+				href="${pageContext.request.contextPath}/adduser">Add User</a></td>
 		</tr>
-
+		
 		<tr>
-			<td><a href="${pageContext.request.contextPath}/admin/logout">logout</a></td>
+			<td><a
+				href="${pageContext.request.contextPath}/addrole">Add Role</a></td>
+		</tr>
+		
+		<tr>
+			<td><a
+				href="${pageContext.request.contextPath}/addfunction">Add Function</a></td>
+		</tr>
+		
+		<tr>
+			<td><a
+				href="${pageContext.request.contextPath}/rooms-list">List Rooms</a></td>
+		</tr>		
+		
+		<tr>
+			<td><a
+				href="${pageContext.request.contextPath}/add-room">Add Room</a></td>
+		</tr>	
+		
+		<tr>
+			<td><a
+				href="${pageContext.request.contextPath}/my-meetings">My Meetings</a></td>
+		</tr>	
+		
+		
+		<tr>
+			<td><a
+				href="${pageContext.request.contextPath}/book-meeting">Book meeting</a></td>
+		</tr>	
+		
+		<tr>
+			<td><a href="${pageContext.request.contextPath}/logout">logout</a></td>
 		</tr>
 	</table>
 </body>
