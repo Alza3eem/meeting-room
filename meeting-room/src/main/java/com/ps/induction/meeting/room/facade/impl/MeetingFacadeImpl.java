@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.ps.induction.meeting.room.domain.entity.Meeting;
 import com.ps.induction.meeting.room.domain.repository.MeetingRepository;
 import com.ps.induction.meeting.room.facade.MeetingFacade;
+import com.ps.induction.meeting.room.facade.exceptions.MeetingNotFoundException;
 import com.ps.induction.meeting.room.facade.exceptions.TimeCrossException;
 
 /**
@@ -36,13 +37,14 @@ public class MeetingFacadeImpl implements MeetingFacade {
 
 	@Override
 	public Iterable<Meeting> myMeetingList(String username) {
-		
-		return null;
+		return meetingRepository.findByAttendeesAttendeeUsername(username);
 	}
 
 	@Override
 	public Meeting getMeetingById(int id) {
-		return meetingRepository.findOneById(id);
+		Meeting meeting = meetingRepository.findOneById(id);
+		if (meeting == null)
+			throw new MeetingNotFoundException("Meeting not found, please check again");
+		return meeting;
 	}
-
 }

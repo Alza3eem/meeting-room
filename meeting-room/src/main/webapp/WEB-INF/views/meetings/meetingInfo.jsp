@@ -11,27 +11,24 @@
 <title>Meeting Info</title>
 </head>
 <body>
-	Meeting Info:${message }
-	<%
-		session.removeAttribute("message");
-	%>
+	Meeting Info:${errMess }
 	<br />
-	
 	<br />
 	<table>
 		<thead>
 			<tr>
-				<th> ID</th>
-				<th> Meeting Room </th>
-				<th> Created By </th> 
-				<th> Status </th>
-				<th> Meeting Date </th>
-				<th> Start Time </th>
-				<th> Finish Time </th>
-				<th> Attendees</th>
+				<th>ID</th>
+				<th>Meeting Room</th>
+				<th>Created By</th>
+				<th>Status</th>
+				<th>Meeting Date</th>
+				<th>Start Time</th>
+				<th>Finish Time</th>
+				<th>Attendees</th>
 			</tr>
 		</thead>
-		<tbody>
+		<c:if test="${meeting ne null} ">
+			<tbody>
 				<tr>
 					<td>${meeting.id}</td>
 					<td>${meeting.meetingRoom.name}</td>
@@ -41,10 +38,11 @@
 					<td>${meeting.meetingStartTime }</td>
 					<td>${meeting.meetingEndTime }</td>
 					<c:forEach items="${meeting.attendees}" var="attendees">
-					<td>${attendees.user.name }</td>
+						<td>${attendees.user.name }</td>
 					</c:forEach>
 				</tr>
-		</tbody>
+			</tbody>
+		</c:if>
 	</table>
 </body>
-</html>  
+</html>

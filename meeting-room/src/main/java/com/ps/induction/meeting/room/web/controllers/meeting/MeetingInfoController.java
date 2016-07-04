@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ps.induction.meeting.room.Constants;
 import com.ps.induction.meeting.room.domain.entity.Meeting;
 import com.ps.induction.meeting.room.facade.MeetingFacade;
+import com.ps.induction.meeting.room.facade.exceptions.FacadeException;
 
 /**
  * @author Eyad Jarrar
@@ -26,9 +28,12 @@ public class MeetingInfoController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String view(@RequestParam Integer id, Map<String, Object> model) {
-
-		Meeting meeting = meetingFacade.getMeetingById(id);
-		model.put("meeting", meeting);
+		try {
+			Meeting meeting = meetingFacade.getMeetingById(id);
+			model.put("meeting", meeting);
+		} catch (FacadeException e) {
+			model.put(Constants.ERROR_MESSAGE, "Meeting not Found");
+		}
 		return "meetings/meetingInfo";
 	}
 }

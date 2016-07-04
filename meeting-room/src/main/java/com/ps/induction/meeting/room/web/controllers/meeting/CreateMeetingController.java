@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.ps.induction.meeting.room.Constants;
 import com.ps.induction.meeting.room.domain.entity.Meeting;
 import com.ps.induction.meeting.room.domain.entity.Room;
 import com.ps.induction.meeting.room.domain.entity.User;
@@ -26,8 +27,6 @@ import com.ps.induction.meeting.room.facade.exceptions.FacadeException;
 @Controller
 @RequestMapping("/book-meeting")
 public class CreateMeetingController {
-
-	public static final String MODEL_KEY_MESSEGE = "msg";
 
 	@Autowired
 	private MeetingFacade meetingFacade;
@@ -53,14 +52,14 @@ public class CreateMeetingController {
 	public String createMeeting(@Valid @ModelAttribute("meeting") Meeting meeting, BindingResult result,
 			Map<String, Object> model) {
 		if (result.hasErrors()) {
-			model.put(MODEL_KEY_MESSEGE, result.getFieldError());
+			model.put(Constants.MODEL_KEY_MESSEGE, result.getFieldError());
 			return "meetings/createMeeting";
 		}
 		try {
 			meetingFacade.createMeeting(meeting);
 			return "redired:/book-meeting";
 		} catch (FacadeException e) {
-			model.put(MODEL_KEY_MESSEGE, e.getMessage());
+			model.put(Constants.MODEL_KEY_MESSEGE, e.getMessage());
 			return "meetings/createMeeting";
 		}
 	}
