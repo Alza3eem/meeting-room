@@ -5,7 +5,6 @@ import java.util.Date;
 import org.springframework.data.repository.Repository;
 
 import com.ps.induction.meeting.room.domain.entity.Meeting;
-import com.ps.induction.meeting.room.domain.entity.Room;
 
 /**
  * @author Mohammad Hussein
@@ -18,10 +17,10 @@ public interface MeetingRepository extends Repository<Meeting, Integer> {
 
 	void deleteById(Integer id);
 
-	Meeting findOneById(int id);
+	Meeting findOneById(Integer id);
 
-	Iterable<Meeting> findByMeetingRoomAndMeetingDateAndMeetingStartTimeBetweenOrMeetingEndTimeBetween(Room room,
-			Date meetingDate, Date start1, Date end1, Date start2, Date end2);
+	Iterable<Meeting> findByMeetingRoomNameAndMeetingDateAndMeetingStartTimeBetweenAndMeetingEndTimeBetween(String room,
+			Date meetingDate, long startTime, long endTime, long endTime2, long startTime2);
 
 	Iterable<Meeting> findByAttendeesAttendeeUsername(String username);
 }

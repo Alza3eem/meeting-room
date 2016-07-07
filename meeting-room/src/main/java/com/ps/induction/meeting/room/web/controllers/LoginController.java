@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ps.induction.meeting.room.Constants;
 import com.ps.induction.meeting.room.domain.entity.User;
 import com.ps.induction.meeting.room.facade.UserFacade;
 import com.ps.induction.meeting.room.web.forms.usermanagement.LoginForm;
@@ -26,7 +27,7 @@ import com.ps.induction.meeting.room.web.forms.usermanagement.LoginForm;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-	
+
 	@Autowired
 	private UserFacade userFacade;
 
@@ -40,18 +41,18 @@ public class LoginController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String loginUser(@ModelAttribute("loginForm") LoginForm form, Map<String, Object> model,HttpServletRequest request) {
+	public String loginUser(@ModelAttribute("loginForm") LoginForm form, Map<String, Object> model,
+			HttpServletRequest request) {
 		String username = form.getUsername();
 		String password = form.getPassword();
-		
+
 		User user = userFacade.getUserByUsernameAndPassword(username, password);
-		
-		
-		if(user != null){
+
+		if (user != null) {
 			HttpSession session = request.getSession(true);
-			session.setAttribute("loggedUser", user);
+			session.setAttribute(Constants.LOGGED_USER_SESSION, user);
 			return "redirect:/listusers";
-		}else{
+		} else {
 			return "/login";
 		}
 

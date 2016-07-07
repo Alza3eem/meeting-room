@@ -1,6 +1,6 @@
-INSERT INTO `meeting_room`.`roles` (`role_id`, `role_name`, `id`) VALUES ('1', 'SuperAdmin', '0');
+INSERT INTO `meeting_room`.`roles` (`role_id`, `role_name`) VALUES ('1', 'SuperAdmin');
 
-INSERT INTO `meeting_room`.`user` (`id`, `frst_name`, `last_name`, `user_pass`, `title`, `username`, `role_role_id`) VALUES ('2', 'Admin', 'AdminF', 'adminadminA', 'Admin', 'adminadminA', '1');
+INSERT INTO `meeting_room`.`user` (`frst_name`, `last_name`, `user_pass`, `title`, `username`, `role_role_id`) VALUES ('Admin', 'AdminF', 'adminadminA', 'Admin', 'adminadminA', '1');
 
 
 INSERT INTO `meeting_room`.`funtions` (`function_id`, `function_name`, `page_name`) VALUES ('1', 'AddFunction', 'AddFunction');

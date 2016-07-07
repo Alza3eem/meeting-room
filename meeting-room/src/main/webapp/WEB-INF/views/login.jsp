@@ -22,13 +22,14 @@
 					<tr>
 						<td>User Name<sup>*</sup></td>
 						<td><input type="text" name="username" value=""
-							required="required" pattern=".{6,30}" /></td>
+							required="required"/>
+						<!--  pattern=".{6,30}"  --> </td>
 					</tr>
 					<tr>
 						<td>Password<sup>*</sup></td>
 						<td><input type="password" name="password" value=""
-							required="required"
-							pattern="(?=.*[a-z])(?=.*[A-Z])([a-zA-Z]){8,30}" /></td>
+							required="required"/>
+							<!-- pattern="(?=.*[a-z])(?=.*[A-Z])([a-zA-Z]){8,30}"  --></td>
 					</tr>
 					<%-- <tr>
 						<td>Capture<sup>*</sup></td>
@@ -44,15 +45,16 @@
 						<td><input type="submit" value="Login" /></td>
 						<td><input type="reset" value="Reset" /></td>
 					</tr>
-					
+
 					<c:if test="${not empty errorMessage}">
 						<tr>
-							<td><c:out value="${errorMessage}"/></td>
+							<td><c:out value="${errorMessage}" /></td>
 						</tr>
 					</c:if>
-										
+
 					<tr>
-						<td colspan="2">Yet Not Registered!! <a href="${pageContext.request.contextPath}/adduser">Register
+						<td colspan="2">Yet Not Registered!! <a
+							href="${pageContext.request.contextPath}/adduser">Register
 								Here</a></td>
 					</tr>
 				</tbody>

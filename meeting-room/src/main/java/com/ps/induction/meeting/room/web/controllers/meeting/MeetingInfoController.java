@@ -5,6 +5,7 @@ package com.ps.induction.meeting.room.web.controllers.meeting;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +25,7 @@ import com.ps.induction.meeting.room.facade.exceptions.FacadeException;
 @RequestMapping("/meeting-info")
 public class MeetingInfoController {
 
+	@Autowired
 	MeetingFacade meetingFacade;
 
 	@RequestMapping(method = RequestMethod.GET)

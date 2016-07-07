@@ -1,5 +1,6 @@
 package com.ps.induction.meeting.room.domain.entity;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -18,7 +19,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,8 +32,8 @@ public class User {
 
 	@ManyToOne
 	private Role role;
-	
-	@Column(name = "username")
+
+	@Column(name = "username", unique = true)
 	private String username;
 
 	@Column(name = "user_pass")
@@ -42,7 +48,8 @@ public class User {
 	@Column(name = "title")
 	private String title;
 
-	//XXX No need for this as the attendees connected with Meeting not with user
+	// XXX No need for this as the attendees connected with Meeting not with
+	// user
 	@OneToMany(mappedBy = "attendee", cascade = CascadeType.ALL)
 	private Set<MeetingAttendee> attendees;
 
@@ -174,6 +181,13 @@ public class User {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", role=" + role + ", username=" + username + ", password=" + password
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", title=" + title + ", attendees="
+				+ attendees + "]";
 	}
 
 }

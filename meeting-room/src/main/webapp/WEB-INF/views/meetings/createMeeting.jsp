@@ -34,12 +34,16 @@
 	<form action="${bookMeetingUrl}" method="post" id="meetingForm">
 		<table>
 			<tr>
+				<td>Title</td>
+				<td><input type="text" name="title" /></td>
+			</tr>
+			<tr>
 				<td>Meeting room</td>
 				<td><select id="meetingRoom" name="meetingRoom"
 					title="Select meetong room">
-						<c:if test="${fn:length(meetingRoom) ne 0 }">
-							<c:forEach var="meetingRoom" items="${rooms }">
-								<option value="${meetingRoom.name}">${meetingRoom.name}</option>
+						<c:if test="${fn:length(rooms) ne 0 }">
+							<c:forEach var="room" items="${rooms }">
+								<option value="${room.name}">${room.name}</option>
 							</c:forEach>
 						</c:if>
 				</select></td>
@@ -50,7 +54,7 @@
 					title="Select attendees" multiple="multiple">
 						<c:if test="${fn:length(users) ne 0 }">
 							<c:forEach var="user" items="${users }">
-								<option value="${user.firstName}">${user.firstName}
+								<option value="${user.username}">${user.firstName}
 									${user.lastName}</option>
 							</c:forEach>
 						</c:if>
@@ -58,7 +62,7 @@
 			</tr>
 			<tr>
 				<td>Notes</td>
-				<td><textarea name="notes" rows="4" cols="50"></textarea></td>
+				<td><textarea name="notes" rows="4" cols="50" name="notes"></textarea></td>
 			</tr>
 			<tr>
 				<td>Date</td>

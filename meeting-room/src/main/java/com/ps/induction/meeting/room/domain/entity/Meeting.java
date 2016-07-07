@@ -1,12 +1,13 @@
 package com.ps.induction.meeting.room.domain.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +17,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Pattern;
 
 /**
  * @author Mohammad Hussein
@@ -24,11 +24,19 @@ import javax.validation.constraints.Pattern;
  */
 @Entity
 @Table(name = "meeting")
-public class Meeting {
+public class Meeting implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+
+	@Column
+	private String title;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Room meetingRoom;
@@ -37,25 +45,19 @@ public class Meeting {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private User userCreate;
 
-	@OneToMany(mappedBy = "meeting", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "meeting", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<MeetingAttendee> attendees;
 
 	@Column(name = "meet_date")
 	@Temporal(TemporalType.DATE)
-	@Pattern(regexp = "\\d{2}/\\d{2}/\\d{4}")
+	// @Pattern(regexp = "\\d{2}/\\d{2}/\\d{4}")
 	private Date meetingDate;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "start_date")
-	private Date meetingStartTime;
+	private Long meetingStartTime;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "end_time")
-	private Date meetingEndTime;
-
-	@Column
-	@Enumerated
-	private MeetingStatus status;
+	private Long meetingEndTime;
 
 	public Integer getId() {
 		return id;
@@ -63,6 +65,14 @@ public class Meeting {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public Room getMeetingRoom() {
@@ -97,35 +107,27 @@ public class Meeting {
 		this.meetingDate = meetingDate;
 	}
 
-	public Date getMeetingStartTime() {
+	public Long getMeetingStartTime() {
 		return meetingStartTime;
 	}
 
-	public void setMeetingStartTime(Date meetingStartTime) {
+	public void setMeetingStartTime(Long meetingStartTime) {
 		this.meetingStartTime = meetingStartTime;
 	}
 
-	public Date getMeetingEndTime() {
+	public Long getMeetingEndTime() {
 		return meetingEndTime;
 	}
 
-	public void setMeetingEndTime(Date meetingEndTime) {
+	public void setMeetingEndTime(Long meetingEndTime) {
 		this.meetingEndTime = meetingEndTime;
-	}
-
-	public MeetingStatus getStatus() {
-		return status;
-	}
-
-	public void setStatus(MeetingStatus status) {
-		this.status = status;
 	}
 
 	@Override
 	public String toString() {
-		return "Meeting [id=" + id + ", room=" + meetingRoom + ", userCreate=" + userCreate + ", attendees=" + attendees
-				+ ", meetingDate=" + meetingDate + ", startTime=" + meetingStartTime + ", endTime=" + meetingEndTime
-				+ ", status=" + status + "]";
+		return "Meeting [id=" + id + ", title=" + title + ", meetingRoom=" + meetingRoom + ", userCreate=" + userCreate
+				+ ", attendees=" + attendees + ", meetingDate=" + meetingDate + ", meetingStartTime=" + meetingStartTime
+				+ ", meetingEndTime=" + meetingEndTime + "]";
 	}
 
 	@Override

@@ -6,7 +6,7 @@ public class Constants {
 
 	public static final String LOGGED_USER_SESSION = "loggedUser";
 
-	public static final String MEETING_LIST = "meeting";
+	public static final String MEETING_LIST = "meetings";
 
 	public static final String ERROR_MESSAGE = "errMess";
 
