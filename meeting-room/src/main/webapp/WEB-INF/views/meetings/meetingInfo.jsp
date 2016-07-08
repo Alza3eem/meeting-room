@@ -27,6 +27,7 @@
 					<th>Start Time</th>
 					<th>Finish Time</th>
 					<th>Attendees</th>
+					<th>Response</th>
 				</tr>
 			</thead>
 
@@ -47,16 +48,15 @@
 					<jsp:setProperty property="time" name="endTime"
 						value="${meeting.meetingEndTime }" />
 					<td><f:formatDate value="${endTime }" pattern="hh:mm a" /></td>
-
 					<c:forEach items="${meeting.attendees}" var="attendee">
-						<td>${attendee.attendee.firstName}</td>
+						<td>${attendee.attendee.firstName}
+							${attendee.attendee.lastName}</td>
 						<c:if test="${attendee.attendee.username eq loggedUser.username}">
+							<c:set var="value" value="${attendee.response}"></c:set>
 							<c:choose>
 								<c:when test="${attendee.response eq 'WAITING'}">
-									<tr>
-										<td><input type="submit" name="accept" value="accept" /></td>
-										<td><input type="submit" name="reject" value="reject" /></td>
-									</tr>
+									<input type="submit" name="Accept" value="accept" />
+									<input type="submit" name="Reject" value="reject" />
 								</c:when>
 								<c:otherwise>
 									<td>${attendee.response }</td>
@@ -64,12 +64,11 @@
 							</c:choose>
 						</c:if>
 					</c:forEach>
+					<td>${value }</td>
 				</tr>
-				<tr>
-					<c:if test="${meeting.userCreate.username eq loggedUser.username}">
-						<td><input type="submit" name="cancel" value="cancel" /></td>
-					</c:if>
-				</tr>
+				<c:if test="${meeting.userCreate.username eq loggedUser.username}">
+					<input type="submit" name="cancel" value="Cancel" />
+				</c:if>
 			</tbody>
 		</table>
 	</form>

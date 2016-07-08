@@ -86,7 +86,7 @@ public class MeetingFacadeImpl implements MeetingFacade {
 
 	@Override
 	public Iterable<Meeting> myMeetingList(String username) {
-		return meetingRepository.findByAttendeesAttendeeUsername(username);
+		return meetingRepository.findByAttendeesAttendeeUsernameOrderByMeetingDateAscMeetingStartTimeAsc(username);
 	}
 
 	@Override

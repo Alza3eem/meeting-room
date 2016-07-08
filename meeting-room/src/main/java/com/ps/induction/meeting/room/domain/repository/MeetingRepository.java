@@ -22,5 +22,5 @@ public interface MeetingRepository extends Repository<Meeting, Integer> {
 	Iterable<Meeting> findByMeetingRoomNameAndMeetingDateAndMeetingStartTimeBetweenAndMeetingEndTimeBetween(String room,
 			Date meetingDate, long startTime, long endTime, long endTime2, long startTime2);
 
-	Iterable<Meeting> findByAttendeesAttendeeUsername(String username);
+	Iterable<Meeting> findByAttendeesAttendeeUsernameOrderByMeetingDateAscMeetingStartTimeAsc(String username);
 }
