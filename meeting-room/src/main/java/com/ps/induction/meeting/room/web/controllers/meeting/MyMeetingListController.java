@@ -29,7 +29,7 @@ public class MyMeetingListController {
 	public String view(HttpServletRequest req, Map<String, Object> model) {
 
 		User user = (User) req.getSession().getAttribute(Constants.LOGGED_USER_SESSION);
-		Iterable<Meeting> myMeetingList = meetingFacade.myMeetingList("u590");
+		Iterable<Meeting> myMeetingList = meetingFacade.myMeetingList(user.getUsername());
 		model.put(Constants.MEETING_LIST, myMeetingList);
 		return "meetings/myMeetingList";
 	}

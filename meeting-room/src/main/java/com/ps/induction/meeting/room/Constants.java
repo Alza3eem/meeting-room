@@ -13,4 +13,6 @@ public class Constants {
 	public static final String ROOM_LIST = "rooms";
 
 	public static final String USER_LIST = "users";
+
+	public static final String MEETING_INFO = "meeting";
 }

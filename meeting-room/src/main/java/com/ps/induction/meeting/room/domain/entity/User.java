@@ -1,16 +1,13 @@
 package com.ps.induction.meeting.room.domain.entity;
 
 import java.io.Serializable;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -47,11 +44,6 @@ public class User implements Serializable {
 
 	@Column(name = "title")
 	private String title;
-
-	// XXX No need for this as the attendees connected with Meeting not with
-	// user
-	@OneToMany(mappedBy = "attendee", cascade = CascadeType.ALL)
-	private Set<MeetingAttendee> attendees;
 
 	/**
 	 * @return the id
@@ -150,14 +142,6 @@ public class User implements Serializable {
 		this.title = title;
 	}
 
-	public Set<MeetingAttendee> getAttendees() {
-		return attendees;
-	}
-
-	public void setAttendees(Set<MeetingAttendee> attendees) {
-		this.attendees = attendees;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -186,8 +170,7 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", role=" + role + ", username=" + username + ", password=" + password
-				+ ", firstName=" + firstName + ", lastName=" + lastName + ", title=" + title + ", attendees="
-				+ attendees + "]";
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", title=" + title + ", attendees=" + "]";
 	}
 
 }

@@ -2,6 +2,7 @@ package com.ps.induction.meeting.room.web.controllers.meeting;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,13 +51,13 @@ public class CreateMeetingController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String createMeeting(@Valid @ModelAttribute("meeting") MeetingForm meeting, BindingResult result,
-			Map<String, Object> model) {
+			Map<String, Object> model, HttpSession session) {
 		if (result.hasErrors()) {
 			model.put(Constants.MODEL_KEY_MESSEGE, result.getFieldError());
 			return "meetings/createMeeting";
 		}
 		try {
-			meetingFacade.createMeeting(meeting);
+			meetingFacade.createMeeting(meeting, (User) session.getAttribute(Constants.LOGGED_USER_SESSION));
 			return "redirect:/book-meeting";
 		} catch (FacadeException e) {
 			model.put(Constants.MODEL_KEY_MESSEGE, e.getMessage());

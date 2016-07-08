@@ -14,44 +14,64 @@
 	Meeting Info:${errMess }
 	<br />
 	<br />
-	<table>
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Meeting Room</th>
-				<th>Created By</th>
-				<th>Title</th>
-				<th>Meeting Date</th>
-				<th>Start Time</th>
-				<th>Finish Time</th>
-				<th>Attendees</th>
-			</tr>
-		</thead>
+	<c:url value="/meeting-info" var="infoMeetingUrl"></c:url>
+	<form action="${infoMeetingUrl }" method="post" id="infoForm">
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Meeting Room</th>
+					<th>Created By</th>
+					<th>Title</th>
+					<th>Meeting Date</th>
+					<th>Start Time</th>
+					<th>Finish Time</th>
+					<th>Attendees</th>
+				</tr>
+			</thead>
 
-		<tbody>
-			<tr>
-				<td>${meeting.id}</td>
-				<td>${meeting.meetingRoom.name}</td>
-				<td>${meeting.userCreate.firstName}</td>
-				<td>${meeting.title }</td>
-				<td>${meeting.meetingDate }</td>
+			<tbody>
+				<tr>
+					<td>${meeting.id}</td>
+					<td>${meeting.meetingRoom.name}</td>
+					<td>${meeting.userCreate.firstName}</td>
+					<td>${meeting.title }</td>
+					<td>${meeting.meetingDate }</td>
 
-				<jsp:useBean id="startTime" class="java.util.Date"></jsp:useBean>
-				<jsp:setProperty property="time" name="startTime"
-					value="${meeting.meetingStartTime }" />
-				<td><f:formatDate value="${startTime }" pattern="hh:mm a" /></td>
+					<jsp:useBean id="startTime" class="java.util.Date"></jsp:useBean>
+					<jsp:setProperty property="time" name="startTime"
+						value="${meeting.meetingStartTime }" />
+					<td><f:formatDate value="${startTime }" pattern="hh:mm a" /></td>
 
-				<jsp:useBean id="endTime" class="java.util.Date"></jsp:useBean>
-				<jsp:setProperty property="time" name="endTime"
-					value="${meeting.meetingEndTime }" />
-				<td><f:formatDate value="${endTime }" pattern="hh:mm a" /></td>
+					<jsp:useBean id="endTime" class="java.util.Date"></jsp:useBean>
+					<jsp:setProperty property="time" name="endTime"
+						value="${meeting.meetingEndTime }" />
+					<td><f:formatDate value="${endTime }" pattern="hh:mm a" /></td>
 
-
-				<c:forEach items="${meeting.attendees}" var="attendee">
-					<td>${attendee.attendee.firstName }</td>
-				</c:forEach>
-			</tr>
-		</tbody>
-	</table>
+					<c:forEach items="${meeting.attendees}" var="attendee">
+						<td>${attendee.attendee.firstName}</td>
+						<c:if test="${attendee.attendee.username eq loggedUser.username}">
+							<c:choose>
+								<c:when test="${attendee.response eq 'WAITING'}">
+									<tr>
+										<td><input type="submit" name="accept" value="accept" /></td>
+										<td><input type="submit" name="reject" value="reject" /></td>
+									</tr>
+								</c:when>
+								<c:otherwise>
+									<td>${attendee.response }</td>
+								</c:otherwise>
+							</c:choose>
+						</c:if>
+					</c:forEach>
+				</tr>
+				<tr>
+					<c:if test="${meeting.userCreate.username eq loggedUser.username}">
+						<td><input type="submit" name="cancel" value="cancel" /></td>
+					</c:if>
+				</tr>
+			</tbody>
+		</table>
+	</form>
 </body>
 </html>

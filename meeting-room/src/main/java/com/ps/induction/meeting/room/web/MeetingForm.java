@@ -1,7 +1,7 @@
 package com.ps.induction.meeting.room.web;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,7 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class MeetingForm {
 	private String title;
 	private String meetingRoom;
-	private List<String> attendees;
+	private Set<String> attendees;
 	private String notes;
 	private Date meetingDate;
 
@@ -38,11 +38,11 @@ public class MeetingForm {
 		this.meetingRoom = meetingRoom;
 	}
 
-	public List<String> getAttendees() {
+	public Set<String> getAttendees() {
 		return attendees;
 	}
 
-	public void setAttendees(List<String> attendees) {
+	public void setAttendees(Set<String> attendees) {
 		this.attendees = attendees;
 	}
 
