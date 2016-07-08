@@ -10,7 +10,7 @@
 <title>My meetings list</title>
 </head>
 <body>
-	My meetings list:
+	My meetings list: ${errMess }
 	<br />
 	<br />
 	<table>
@@ -34,12 +34,12 @@
 					<td>${oneMeeting.meetingRoom.name}</td>
 					<td>${oneMeeting.userCreate.username}</td>
 					<td>${oneMeeting.meetingDate }</td>
-					
+
 					<jsp:useBean id="startTime" class="java.util.Date"></jsp:useBean>
 					<jsp:setProperty property="time" name="startTime"
 						value="${oneMeeting.meetingStartTime }" />
 					<td><f:formatDate value="${startTime }" pattern="hh:mm a" /></td>
-					
+
 					<jsp:useBean id="endTime" class="java.util.Date"></jsp:useBean>
 					<jsp:setProperty property="time" name="endTime"
 						value="${oneMeeting.meetingEndTime }" />

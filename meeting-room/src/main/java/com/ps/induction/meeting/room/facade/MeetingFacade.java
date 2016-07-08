@@ -1,5 +1,6 @@
 package com.ps.induction.meeting.room.facade;
 
+import com.ps.induction.meeting.room.domain.entity.AttedanceStatus;
 import com.ps.induction.meeting.room.domain.entity.Meeting;
 import com.ps.induction.meeting.room.domain.entity.User;
 import com.ps.induction.meeting.room.web.MeetingForm;
@@ -15,4 +16,8 @@ public interface MeetingFacade {
 	Iterable<Meeting> myMeetingList(String username);
 
 	Meeting getMeeting(Integer id);
+
+	void setResponse(AttedanceStatus response, Integer meetingId, String username);
+
+	void deleteMeeting(Integer meetingId);
 }

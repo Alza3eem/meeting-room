@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ps.induction.meeting.room.Constants;
+import com.ps.induction.meeting.room.domain.entity.AttedanceStatus;
 import com.ps.induction.meeting.room.domain.entity.Meeting;
+import com.ps.induction.meeting.room.domain.entity.User;
 import com.ps.induction.meeting.room.facade.MeetingFacade;
 import com.ps.induction.meeting.room.facade.exceptions.FacadeException;
 import com.ps.induction.meeting.room.web.ResponseDeleteMeetingForm;
@@ -43,16 +45,23 @@ public class MeetingInfoController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String handleResponseDeleteRequest(ResponseDeleteMeetingForm form) {
-		if (form.getAccept() != null)
-			System.out.println("Accept");
+	public String handleResponseDeleteRequest(ResponseDeleteMeetingForm form, HttpServletRequest req,
+			Map<String, Object> model) {
+		Integer meetingId = Integer.parseInt(req.getParameter("meetingId"));
+		User loggedUser = (User) req.getSession().getAttribute(Constants.LOGGED_USER_SESSION);
+		try {
+			if (form.getAccept() != null)
+				meetingFacade.setResponse(AttedanceStatus.ACCEPTTED, meetingId, loggedUser.getUsername());
 
-		else if (form.getReject() != null)
-			System.out.println("Reject");
+			else if (form.getReject() != null)
+				meetingFacade.setResponse(AttedanceStatus.REJECTED, meetingId, loggedUser.getUsername());
 
-		else
-			System.out.println("Cancel");
-		return "meetings/myMeetingList";
+			else
+				meetingFacade.deleteMeeting(meetingId);
+		} catch (FacadeException e) {
+			model.put(Constants.ERROR_MESSAGE, e.getMessage());
+		}
+		return "redirect:/my-meetings";
 
 	}
 }

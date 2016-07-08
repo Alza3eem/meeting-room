@@ -29,7 +29,7 @@
 </head>
 <body>
 	<c:url value="/book-meeting" var="bookMeetingUrl"></c:url>
-	Book a meeting: ${mess}
+	Book a meeting: ${msg}
 
 	<form action="${bookMeetingUrl}" method="post" id="meetingForm">
 		<table>

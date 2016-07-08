@@ -2,7 +2,6 @@ package com.ps.induction.meeting.room.domain.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -28,12 +27,12 @@ public class MeetingAttendee implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "meeting_id")
 	private Meeting meeting;
 
 	@Id
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User attendee;
 

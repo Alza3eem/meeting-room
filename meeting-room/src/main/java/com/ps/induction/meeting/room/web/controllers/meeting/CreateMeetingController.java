@@ -58,6 +58,7 @@ public class CreateMeetingController {
 		}
 		try {
 			meetingFacade.createMeeting(meeting, (User) session.getAttribute(Constants.LOGGED_USER_SESSION));
+			model.put(Constants.MODEL_KEY_MESSEGE, "Meeting Created Successfully");
 			return "redirect:/book-meeting";
 		} catch (FacadeException e) {
 			model.put(Constants.MODEL_KEY_MESSEGE, e.getMessage());

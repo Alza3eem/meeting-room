@@ -38,14 +38,14 @@ public class Meeting implements Serializable {
 	@Column
 	private String title;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private Room meetingRoom;
 
 	@JoinColumn(name = "user_create")
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private User userCreate;
 
-	@OneToMany(mappedBy = "meeting", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "meeting", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 	private Set<MeetingAttendee> attendees;
 
 	@Column(name = "meet_date")

@@ -16,10 +16,10 @@
 	<br />
 	<c:url value="/meeting-info" var="infoMeetingUrl"></c:url>
 	<form action="${infoMeetingUrl }" method="post" id="infoForm">
+		<input type="hidden" name="meetingId" value="${meeting.id}">
 		<table>
 			<thead>
 				<tr>
-					<th>ID</th>
 					<th>Meeting Room</th>
 					<th>Created By</th>
 					<th>Title</th>
@@ -33,7 +33,6 @@
 
 			<tbody>
 				<tr>
-					<td>${meeting.id}</td>
 					<td>${meeting.meetingRoom.name}</td>
 					<td>${meeting.userCreate.firstName}</td>
 					<td>${meeting.title }</td>
@@ -53,15 +52,10 @@
 							${attendee.attendee.lastName}</td>
 						<c:if test="${attendee.attendee.username eq loggedUser.username}">
 							<c:set var="value" value="${attendee.response}"></c:set>
-							<c:choose>
-								<c:when test="${attendee.response eq 'WAITING'}">
-									<input type="submit" name="Accept" value="accept" />
-									<input type="submit" name="Reject" value="reject" />
-								</c:when>
-								<c:otherwise>
-									<td>${attendee.response }</td>
-								</c:otherwise>
-							</c:choose>
+							<c:if test="${attendee.response eq 'WAITING'}">
+								<input type="submit" name="Accept" value="accept" />
+								<input type="submit" name="Reject" value="reject" />
+							</c:if>
 						</c:if>
 					</c:forEach>
 					<td>${value }</td>

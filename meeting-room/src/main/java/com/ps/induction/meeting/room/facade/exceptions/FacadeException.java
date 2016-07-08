@@ -10,6 +10,11 @@ package com.ps.induction.meeting.room.facade.exceptions;
 public class FacadeException extends RuntimeException {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * @param message
 	 * @param cause
 	 * @param enableSuppression
