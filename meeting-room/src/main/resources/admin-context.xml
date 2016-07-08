@@ -12,14 +12,18 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	<!-- <mvc:interceptors> <mvc:interceptor> <mvc:mapping path="/**" /> <mvc:exclude-mapping 
-		path="/login" /> <mvc:exclude-mapping path="/adduser" /> <mvc:exclude-mapping 
-		path="/logout" /> <bean class="com.ps.induction.meeting.room.interceptor.SessionInterceptor"></bean> 
-		</mvc:interceptor> </mvc:interceptors> -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/login" />
+			<mvc:exclude-mapping path="/adduser" />
+			<mvc:exclude-mapping path="/logout" />
+			<bean class="com.ps.induction.meeting.room.interceptor.SessionInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/WEB-INF/views/" suffix=".jsp" />
 	</mvc:view-resolvers>
 	<mvc:redirect-view-controller
 		redirect-url="/login" path="/" />
-
 </beans>

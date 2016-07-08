@@ -1,22 +1,26 @@
 Stories:
-0. Create git and project 			 -------------->	Done
-1. Create Entities & repositories	 -------------->	Done
+0. Prepare project on git, Web.xml,Spring xmls ---->	Mohammad Hussein
+1. Create Entities & repositories	 -------------->	All
 
-2. Add User				--------------------------->	
-3. List users (pagination) ------------------------>	
-4. Update User			   ------------------------>	
-5. Delete User			   ------------------------>	
-6. Add role, function			------------------->	
-7. Interceptors & Filters		------------------->	
+2. Add User				--------------------------->	Loai Tamimi
+3. List users (pagination) ------------------------>	Loai Tamimi
+4. Update User			   ------------------------>	Loai Tamimi
+5. Delete User			   ------------------------>	Loai Tamimi
+6. Add role, function			------------------->	Loai Tamimi
+7. Interceptors					------------------->	Loai Tamimi
 
-8. Add room				 -------------------------->	
-9. List rooms (pagination) ------------------------>	
-10. Update Room				----------------------->	
-11. Delete Room				----------------------->	
+8. Add room				 -------------------------->	Eyad Jarrar
+9. List rooms (pagination) ------------------------>	Eyad Jarrar
+10. Update Room				----------------------->	Eyad Jarrar
+11. Delete Room				----------------------->	Eyad Jarrar
+12. User Facade				----------------------->	Eyad Jarrar
 
-12. Book meeting(add) 	 --------------------------->	
-13. My meetings page list(pagination) -------------->	
-14. Meeting details 		------------------------>	
-15. Accept, wait or reject meeting ----------------->	
+13. Book meeting(add) 	 --------------------------->	Mohammad Hussein
+14. My meetings page list(pagination) -------------->	Mohammad Hussein
+15. Meeting details 		------------------------>	Eyad Jarrar
+16. Accept, cancel or reject meeting --------------->	Mohammad Hussein
+17. Filters				---------------------------->	Mohammad Hussein
+18. Exceptions			---------------------------->	Mohammad Hussein
 
-16. Login					------------------------>	
+19. Login					------------------------>	Loai Tamimi
+19. Logout					------------------------>	Loai Tamimi

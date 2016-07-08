@@ -35,7 +35,7 @@
 		<table>
 			<tr>
 				<td>Title</td>
-				<td><input type="text" name="title" /></td>
+				<td><input type="text" name="title" value="${meeting.title }" /></td>
 			</tr>
 			<tr>
 				<td>Meeting room</td>
@@ -62,21 +62,22 @@
 			</tr>
 			<tr>
 				<td>Notes</td>
-				<td><textarea name="notes" rows="4" cols="50" name="notes"></textarea></td>
+				<td><textarea name="notes" rows="4" cols="50" name="notes">${meeting.notes}</textarea></td>
 			</tr>
 			<tr>
 				<td>Date</td>
 				<td><input type="text" id="datepicker" name="meetingDate"
-					readonly="readonly" /></td>
+					readonly="readonly" value="${meeting.meetingDate}" /></td>
 			</tr>
 			<tr>
 				<td>Start time</td>
 				<td><input class="timepicker" name="meetingStartTime"
-					type="text" /></td>
+					type="text" value="${meeting.meetingStartTime}" /></td>
 			</tr>
 			<tr>
 				<td>End time</td>
-				<td><input type="text" class="timepicker" name="meetingEndTime" /></td>
+				<td><input type="text" class="timepicker" name="meetingEndTime"
+					value="${meeting.meetingEndTime}" /></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" /><input type="reset" /></td>

@@ -3,6 +3,8 @@ package com.ps.induction.meeting.room.web;
 import java.util.Date;
 import java.util.Set;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -10,15 +12,26 @@ import org.springframework.format.annotation.DateTimeFormat;
  *
  */
 public class MeetingForm {
+	@NotNull
 	private String title;
+
+	@NotNull
 	private String meetingRoom;
+
+	@NotNull
 	private Set<String> attendees;
+
+	@NotNull
 	private String notes;
+
+	@NotNull
 	private Date meetingDate;
 
+	@NotNull
 	@DateTimeFormat(pattern = "hh:mm a")
 	private Date meetingStartTime;
 
+	@NotNull
 	@DateTimeFormat(pattern = "hh:mm a")
 	private Date meetingEndTime;
 

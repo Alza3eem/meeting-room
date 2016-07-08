@@ -42,7 +42,6 @@ public class CreateMeetingController {
 	public String view(Map<String, Object> model) {
 		Iterable<Room> rooms = roomFacade.getAllRooms();
 		Iterable<User> users = userFacade.getAllUsers();
-		// My: Don't show the the reserved times
 
 		model.put(Constants.ROOM_LIST, rooms);
 		model.put(Constants.USER_LIST, users);
@@ -59,7 +58,7 @@ public class CreateMeetingController {
 		try {
 			meetingFacade.createMeeting(meeting, (User) session.getAttribute(Constants.LOGGED_USER_SESSION));
 			model.put(Constants.MODEL_KEY_MESSEGE, "Meeting Created Successfully");
-			return "redirect:/book-meeting";
+			return "meetings/createMeeting";
 		} catch (FacadeException e) {
 			model.put(Constants.MODEL_KEY_MESSEGE, e.getMessage());
 			return "meetings/createMeeting";

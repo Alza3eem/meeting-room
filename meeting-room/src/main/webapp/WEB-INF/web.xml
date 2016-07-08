@@ -23,4 +23,16 @@
 		<servlet-name>User</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	<filter>
+		<filter-name>CacheFilter</filter-name>
+		<filter-class>com.ps.induction.meeting.room.interceptor.NoBrowserCacheFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CacheFilter</filter-name>
+		<url-pattern>/meeting-info/*</url-pattern>
+	</filter-mapping>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/login</location>
+	</error-page>
 </web-app>
