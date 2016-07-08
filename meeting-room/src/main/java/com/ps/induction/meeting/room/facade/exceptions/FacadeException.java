@@ -4,7 +4,7 @@
 package com.ps.induction.meeting.room.facade.exceptions;
 
 /**
- * @author u592
+ * @author Eyad Jarrar
  *
  */
 public class FacadeException extends RuntimeException {

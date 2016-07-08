@@ -1,5 +1,9 @@
 package com.ps.induction.meeting.room.facade.exceptions;
 
+/**
+ * @author Mohammad Hussein
+ *
+ */
 public class RoomNotFoundException extends FacadeException {
 
 	/**
